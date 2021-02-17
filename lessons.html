@@ -6,9 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Info School</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>L'atelier de Miss L</title>
 </head>
 
 
@@ -41,42 +40,49 @@
 
 <body>
     <div class="container">
-        <div class="row my-3">
+        <div class="row my-4">
             <div class="col">
                 <h1>Cours</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-4">
-                <div class="card">
+
+        <div class="row mb-3">
+            <div class="col">
+                <input class="form-control" id="searchInput" type="text" placeholder="Search...">
+            </div>
+        </div>
+
+        <div class="row" id="lessonList">
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card border-muted shadow">
                     <img src="Phase_1.jpg" alt="Animations CSS modernes" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Vaincre votre peur</h5>
                         <p class="card-text">Vous allez plonger dans le monde des animations CSS pour donner vie à vos
                             pages web !</p>
-                        <a href="lessons1.html" class="btn btn-primary">Démarrer l'apprentissage</a>
+                        <a href="lessons1.html" class="btn btn-primary stretched-link">Démarrer l'apprentissage</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
-                <div class="card">
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card border-muted shadow">
                     <img src="Phase_2.jpg" alt="Programmation JavaScript" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Domptez la bête</h5>
                         <p class="card-text">Ce cours est conçu pour vous enseigner les bases du langage de
                             programmation JavaScript.</p>
-                        <a href="lessons1.html" class="btn btn-primary">Démarrer l'apprentissage</a>
+                        <a href="lessons1.html" class="btn btn-primary stretched-link">Démarrer l'apprentissage</a>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
-                <div class="card">
+            <div class="col-12 col-lg-4 mb-4">
+                <div class="card border-muted shadow">
                     <img src="Phase_3.jpg" alt="Programmation Swift" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Résultats garantis</h5>
                         <p class="card-text">Découvrez les résultats de notre méthode (aucun remboursement pour absence
                             de résultat à ce jour)</p>
-                        <a href="lessons1.html" class="btn btn-success">Démarrer l'apprentissage</a>
+                        <a href="lessons1.html" class="btn btn-success stretched-link">Démarrer l'apprentissage</a>
                     </div>
                 </div>
             </div>
@@ -108,6 +114,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#lessonList .col-12").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
